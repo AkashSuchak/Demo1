@@ -14,15 +14,17 @@ dayHoursPartTime=4
 dailyWageFullTime=$((wagePerHour*dayHoursFullTime))
 dailyWagePartTime=$((wagePerHour*dayHoursPartTime))
 
-#Checking Part Time or Full Time Emplyoyee with Wage
-if [ "$isFullTime" -eq "1" ];then
-	echo "Full Time Employee"
-	echo "Daily Wage : " $dailyWageFullTime
-
-elif [ "$isFullTime" -eq "2" ]; then
-	echo "Part Time Employee"
-	echo "Daily Wage : " $dailyWagePartTime
-else
-	echo "Employee is Absent"
-fi
-
+#Checking Part Time or Full Time Emplyoyee with Wage Using Case
+case $isFullTime in
+	1)
+		echo "Full Time Employee"
+		echo "Daily Wage : " $dailyWageFullTime
+		;;
+	2)
+		echo "Part Time Employee"
+		echo "Daily Wage : " $dailyWagePartTime
+		;;
+	*)
+		echo "Employee is Absent"
+		;;
+esac
