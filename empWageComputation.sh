@@ -3,18 +3,25 @@
 #Author : Akash Suchak
 #Daily Employee Wage
 
-#Varible to take value 0 or 1
-isPresent=$((RANDOM%2))
+#Varible to take value
+isFullTime=$((RANDOM%3))
 
 #Count of Daily Wage
 wagePerHour=20
-dayHours=8
-dailyWage=$((wagePerHour*dayHours))
+dayHoursFullTime=8
+dayHoursPartTime=4
 
-#Checking Emplyoyee Present or Absent
-if [ "$isPresent" -eq "1" ];then
-	echo "Employee is Present"
-	echo "Daily Employee Wage is : " $dailyWage
+dailyWageFullTime=$((wagePerHour*dayHoursFullTime))
+dailyWagePartTime=$((wagePerHour*dayHoursPartTime))
+
+#Checking Part Time or Full Time Emplyoyee with Wage
+if [ "$isFullTime" -eq "1" ];then
+	echo "Full Time Employee"
+	echo "Daily Wage : " $dailyWageFullTime
+
+elif [ "$isFullTime" -eq "2" ]; then
+	echo "Part Time Employee"
+	echo "Daily Wage : " $dailyWagePartTime
 else
 	echo "Employee is Absent"
 fi
